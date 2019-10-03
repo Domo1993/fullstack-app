@@ -1,0 +1,88 @@
+header {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #6FD5FF;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+/*Form stuff*/
+
+label {
+  padding-right: 10px;
+}
+
+.tableLabel {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.form {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+input {
+  width: 350px;
+}
+
+.formDiv {
+  margin-right: 30%;
+  padding-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*Instructions*/
+#instructions {
+  background-color: lightgrey;
+  padding: 5px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+h6 {
+  text-align: center;
+}
+
+
+/* My data*/
+.dataTable, .tableCol {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#tableHead {
+  background-color: #1C81AA;
+  color: white;
+
+}
+
+.tableCol {
+  padding: 10px;
+}
+
+.dataTable {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dataTableDiv {
+  padding-top: 10px;
+}
