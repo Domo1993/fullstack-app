@@ -15,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://stark-reaches-42806.herokuapp.com",
+  "proxy": "https://calm-tundra-64769.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },
