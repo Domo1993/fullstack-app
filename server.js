@@ -5,8 +5,6 @@ const webProjects = require('./webProjects.json') // Fetching the json file cont
 
 const PORT = process.env.PORT || 3001; // Setting the port number as 3000
 
-
-
 // This get method reads the contents of the 'webProjects.json' file and displays the information on pathname '/api'
 app.get('/api', function(req, res) {
     fileHandler.readFile('webProjects.json', (err, data) => {
