@@ -65,7 +65,6 @@ class App extends Component {
                 method: "DELETE"
             })
             .then((i) => {
-                console.log(i)
                 // Fetching our api and displaying the updated data
                 fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
                     .then(res => res.json())
@@ -78,11 +77,9 @@ class App extends Component {
         fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
             .then(res => res.json())
             .then(projects => this.setState({ projects }));
-            console.log(this.state.projects)
     }
 
     render() {
-        console.log(this.state.projects)
         return (
             <div id="wholePage">
             <header>
