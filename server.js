@@ -1,5 +1,6 @@
 const express = require('express') // Fetching the express module
-const app = express()
+const app = express();
+const path = require('path');
 const fileHandler = require('fs'); // Fetching the file system module
 const webProjects = require('./webProjects.json') // Fetching the json file contents
 
@@ -77,6 +78,10 @@ app.put('/api', function(req, res) {
         }
     })
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
+  })
 
 // The server is listening on port 3001
 app.listen(PORT, () => {
