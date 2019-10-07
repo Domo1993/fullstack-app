@@ -1,8 +1,11 @@
 const express = require('express') // Fetching the express module
+var cors = require('cors')
 const app = express();
 const path = require('path');
 const fileHandler = require('fs'); // Fetching the file system module
 const webProjects = require('./webProjects.json') // Fetching the json file contents
+
+app.use(cors())
 
 const PORT = process.env.PORT || 3001; // Setting the port number as 3000
 

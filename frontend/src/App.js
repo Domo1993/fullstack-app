@@ -11,17 +11,18 @@ class App extends Component {
 
     // This post function allows the user add an item to the table (The 'webProjects.json' file contains the data and is updated when this function is called)
     myPost() {
-        const id = this.state.id;
+        let id = this.state.id;
         const title = this.state.title;
         const description = this.state.description;
         const url = this.state.url;
+        
         // Fetching data from our api and inputting the qeury params from the user's inputted text
-        fetch(`/api?id=${id}&title=${title}&description=${description}&URL=${url}`, {
+        fetch(`https://calm-tundra-64769.herokuapp.com/api?id=${id}&title=${title}&description=${description}&URL=${url}`, {
                 method: "POST"
             })
             .then(() => {
                 // Fetching our api and displaying the updated data
-                fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
+                fetch('https://calm-tundra-64769.herokuapp.com/api', { method: "GET", headers: { "Content-Type": "application/json" } })
                     .then(res => res.json())
                     .then(projects => this.setState({ projects }));
             });
@@ -40,12 +41,12 @@ class App extends Component {
         const description = this.state.description;
         const url = this.state.url;
         // Fetching data from our api and inputting the qeury params from the user's inputted text
-        fetch(`/api?id=${id}&title=${title}&description=${description}&URL=${url}`, {
+        fetch(`https://calm-tundra-64769.herokuapp.com/api?id=${id}&title=${title}&description=${description}&URL=${url}`, {
                 method: "PUT"
             })
             .then(() => {
                 // Fetching our api and displaying the updated data
-                fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
+                fetch('https://calm-tundra-64769.herokuapp.com/api', { method: "GET", headers: { "Content-Type": "application/json" } })
                     .then(res => res.json())
                     .then(projects => this.setState({ projects }));
             });
@@ -61,12 +62,12 @@ class App extends Component {
     myDelete() {
         const id = this.state.id;
         // Fetching data from our api and inputting the qeury params from the user's inputted text
-        fetch(`/api?id=${id}`, {
+        fetch(`https://calm-tundra-64769.herokuapp.com/api?id=${id}`, {
                 method: "DELETE"
             })
             .then((i) => {
                 // Fetching our api and displaying the updated data
-                fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
+                fetch('https://calm-tundra-64769.herokuapp.com/api', { method: "GET", headers: { "Content-Type": "application/json" } })
                     .then(res => res.json())
                     .then(projects => this.setState({ projects }));
             });
@@ -74,7 +75,7 @@ class App extends Component {
 
     // displays the webProjects data when the app loads
     componentDidMount() {
-        fetch('/api', { method: "GET", headers: { "Content-Type": "application/json" } })
+        fetch('https://calm-tundra-64769.herokuapp.com/api', { method: "GET", headers: { "Content-Type": "application/json" } })
             .then(res => res.json())
             .then(projects => this.setState({ projects }));
     }
@@ -120,17 +121,21 @@ class App extends Component {
 
                         {/*The add, edit and delete buttons*/}
                             <button onClick={(e) => {
-                                this.myPost() 
+                                this.myPost()
+                                e.preventDefault()
+
                             }} type="submit" value="Submit" id="btn1">Add</button>
                             &nbsp; &nbsp; &nbsp;
 
                             <button onClick={(e) => {
                                 this.myEdit()
+                                e.preventDefault() 
                             }} type="submit" value="Change" id="btn2">Edit</button>
                             &nbsp; &nbsp; &nbsp;
 
                             <button onClick={(e) => {
                               this.myDelete()
+                              e.preventDefault() 
                             }} type="submit" value="Delete" id="btn3">Delete</button>
                             
                             </div> {/*End of buttons section div*/}
@@ -169,7 +174,7 @@ class App extends Component {
                                   <td className="tableCol">{obj.id}</td>
                                   <td className="tableCol">{obj.title}</td>
                                   <td className="tableCol">{obj.description}</td>
-                                  <td className="tableCol">{obj.URL}</td>
+                                  <td className="tableCol"><a href={obj.URL} target="_blank" rel="noopener noreferrer">{obj.URL}</a></td>
                                 </tr>
                             </tbody>
                         );
